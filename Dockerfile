@@ -11,6 +11,7 @@ RUN npm run build
 # Stage 2: Build Backend Server
 FROM node:22-alpine AS server-builder
 WORKDIR /app/server
+RUN apk add --no-cache openssl
 COPY server/package*.json ./
 RUN npm ci
 COPY server/ ./
@@ -19,6 +20,7 @@ RUN npx prisma generate
 # Stage 3: Final Production Runner
 FROM node:22-alpine AS runner
 WORKDIR /app
+RUN apk add --no-cache openssl
 
 ENV NODE_ENV=production
 ENV PORT=5000
