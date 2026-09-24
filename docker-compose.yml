@@ -10,3 +10,13 @@ services:
       - DATABASE_URL=file:./dev.db
       - JWT_SECRET=edumerge_super_secret_jwt_key_2026
     restart: always
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
