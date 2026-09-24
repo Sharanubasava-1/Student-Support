@@ -148,7 +148,17 @@
   color: #111111 !important;
 }
 
-.auth-action, .auth-mark {
+.auth-action {
+  background-color: #111111 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.auth-action:hover:not(:disabled) {
+  background-color: #2b2b2b !important;
+}
+
+.auth-mark {
   color: #ffffff !important;
 }
 
